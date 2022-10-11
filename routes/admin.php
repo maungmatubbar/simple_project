@@ -3,6 +3,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Front\CommentController;
+use App\Http\Controllers\Front\ReplyController;
 //Admin Login
 Route::middleware(['admin.login'])->group(function(){
     Route::get('/admin-login',[AdminController::class,'adminLogin'])->name('admin.login');
@@ -19,4 +21,7 @@ Route::middleware(['admin'])->group(function(){
     Route::post('/update-post/{id}',[PostController::class,'update'])->name('post.update');
     Route::get('/delete-post/{id}',[PostController::class,'destroy'])->name('post.delete');
     Route::post('/update-status-post',[PostController::class,'updateStatus'])->name('post.update.status');
+    //status
+    Route::get('/reply-status/{id}',[ReplyController::class,'updateStatus'])->name('reply.status');
+    Route::get('/comment-status/{id}',[CommentController::class,'updateStatus'])->name('comment.status');
 });

@@ -6,7 +6,6 @@ $(document).ready(function () {
     })
     $('.comment_hide').click(function () {
         var commentId = $(this).attr('comment_id');
-
         $.ajax({
             url:'/comment-status/'+commentId,
             type: 'get',

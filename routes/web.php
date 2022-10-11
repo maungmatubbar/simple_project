@@ -20,10 +20,9 @@ Route::get('/post-detail/{id}', [PostController::class,'detail'])->name('front.p
 Route::middleware('auth')->group(function(){
     //Comment
     Route::post('/comment',[CommentController::class,'store'])->name('comment.store');
-    Route::get('/comment-status/{id}',[CommentController::class,'updateStatus'])->name('comment.status');
     //Reply
     Route::post('/reply',[ReplyController::class,'store'])->name('reply.store');
-    Route::get('/reply-status/{id}',[ReplyController::class,'updateStatus'])->name('reply.status');
+
 });
 require __DIR__.'/admin.php';
 require __DIR__.'/auth.php';

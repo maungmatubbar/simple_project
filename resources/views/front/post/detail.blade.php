@@ -63,8 +63,8 @@
             </div>
         </div>
         @foreach($comments as $comment)
-            <div>
-                <div class="card m-0 card-body mb-2 rounded-0" id="commentBox-{{ $comment->id }}">
+            <div id="commentBox-{{ $comment->id }}">
+                <div class="card m-0 card-body mb-2 rounded-0">
                     <div class="row">
                         <div class="card-text col-md-9">
                             <h5 class="p-0">{{ $comment->name }}</h5>
@@ -103,8 +103,8 @@
 
                 </div>
                 @foreach($comment->replies as $reply)
-                    <div>
-                        <div class="card card-body ml-5 mb-2" id="reply-{{ $reply->id }}">
+                    <div id="reply-{{ $reply->id }}">
+                        <div class="card card-body ml-5 mb-2">
                             <div class="row">
                                 <div class="card-text col-md-9">
                                     <h5 class="p-0">{{ $reply->name }}</h5>
