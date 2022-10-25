@@ -34,7 +34,6 @@ $(document).ready(function () {
                 {
                     $('#reply-'+replyId).hide();
                 }
-
             },
             error: function (res) {
                 alert('problem'+res)
@@ -47,6 +46,24 @@ $(document).ready(function () {
     $('.subReply_btn').click(function () {
         var subReplyBoxId= $(this).attr('subReplyBoxId');
         $('#subReply-'+subReplyBoxId).slideToggle();
-    })
+    });
+    $(document).on('click','.pagination a',function (event) {
+        event.preventDefault();
+        var pageNo = $(this).attr('href').split('page=')[1];
+        getMorePost(pageNo);
+    });
+    function getMorePost(pageNo) {
+        $.ajax({
+            url:'/more-post/?page='+pageNo,
+            type:'get',
+            success:function (response) {
+                $('#post').html(response)
+            },
+            error:function () {
+                alert('problem');
+            }
+        })
+    }
+
 
 })

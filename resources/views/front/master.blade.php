@@ -59,24 +59,14 @@
 </nav>
 
 <!-- Page Content -->
-<div class="container">
 
-    <div class="row">
-        @yield('content')
-
-    </div>
+@yield('content')
     <!-- /.row -->
-
 </div>
 <!-- /.container -->
 
 <!-- Footer -->
-<footer class="py-5 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
-    </div>
-    <!-- /.container -->
-</footer>
+@include('front.includes.footer')
 
 <!-- Bootstrap core JavaScript -->
 <script src="{{ asset('/') }}frontend/vendor/jquery/jquery.min.js"></script>

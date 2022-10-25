@@ -15,5 +15,13 @@ class HomeController extends Controller
         //return $this->posts;
         return view('front.home.home',['posts'=>$this->posts]);
     }
+    public function getMorePost(Request $request)
+    {
+        if($request->ajax())
+        {
+            $this->posts = Post::where('status',1)->paginate(5);
+            return view('front.home.blog_posts',['posts'=>$this->posts]);
+        }
+    }
 
 }

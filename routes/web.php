@@ -17,6 +17,7 @@ use App\Http\Controllers\Front\ReplyController;
 
 Route::get('/', [HomeController::class,'home'])->name('home');
 Route::get('/post-detail/{id}', [PostController::class,'detail'])->name('front.post.detail');
+Route::get('/more-post',[HomeController::class,'getMorePost'])->name('front.more.post');
 Route::middleware('auth')->group(function(){
     //Comment
     Route::post('/comment',[CommentController::class,'store'])->name('comment.store');
